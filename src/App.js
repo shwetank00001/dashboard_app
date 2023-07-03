@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   return (
-    <h1 className='text-lg font-medium '>Aqepp</h1>
+    <h1 className='underline text-3xl'>Aqepp</h1>
   );
 }
 
