@@ -31,6 +31,10 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => {
       </TooltipComponent>)
 }
 
+function handleClick(){
+  
+}
+
 const Navbar = () => {
   const {activeMenu, setActiveMenu} = useStateContext()
 
@@ -40,8 +44,44 @@ const Navbar = () => {
         title="Menu" 
         customFunc={() => setActiveMenu((item) => !item)}  
         color="blue" 
-        icon={<AiOutlineMenu />} 
-      />
+        icon={<AiOutlineMenu />} />
+
+        <div className='flex'>
+          <NavButton 
+          title="Cart" 
+          customFunc={() => handleClick('cart')}  
+          color="blue" 
+          icon={<FiShoppingCart />} />
+
+          <NavButton 
+          title="Chat" 
+          customFunc={() => handleClick('CHAT')}  
+          color="blue" 
+          dotColor="#03C9D7"
+          icon={<BsChatLeft />} />
+
+          <NavButton 
+          title="Notification" 
+          customFunc={() => handleClick('notification')}  
+          dotColor="#03C9D7"
+          color="blue" 
+          icon={<RiNotification3Line />} />
+
+          <TooltipComponent 
+          content="Profile"
+          position='BottomCenter'>  
+            <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
+            onClick={() => handleClick('User Profile')}>
+              <img className='rounded-full w-8 h-8' src={avatar} />
+                <p>
+                  <span className='text-gray-400 text-14'>Hi,</span> {' '}
+                  <span className='text-gray-400 text-14 font-bold ml-1'>Shwetank</span>
+                </p>
+                <MdKeyboardArrowDown className='text-gray-400 text-14' />
+            </div>
+            
+          </TooltipComponent>
+        </div>
     </div>
   )
 }
