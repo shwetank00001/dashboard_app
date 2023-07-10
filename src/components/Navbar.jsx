@@ -36,7 +36,18 @@ function handleClick(){
 }
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu} = useStateContext()
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext()
+
+  useEffect(()=> {
+    const handleResize = () => {
+        setScreenSize(window.innerWidth)
+        window.addEventListener('resize', handleResize)  // when we use this, i/e add an event listener
+
+        handleResize()
+
+        return() => window.removeEventListener('resize', handleResize) // we use this  to remove that
+    }
+}, [])
 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
@@ -55,7 +66,7 @@ const Navbar = () => {
 
           <NavButton 
           title="Chat" 
-          customFunc={() => handleClick('CHAT')}  
+          customFunc={() => handleClick('chat')}  
           color="blue" 
           dotColor="#03C9D7"
           icon={<BsChatLeft />} />
@@ -71,7 +82,7 @@ const Navbar = () => {
           content="Profile"
           position='BottomCenter'>  
             <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
-            onClick={() => handleClick('User Profile')}>
+            onClick={() => handleClick('userProfile')}>
               <img className='rounded-full w-8 h-8' src={avatar} />
                 <p>
                   <span className='text-gray-400 text-14'>Hi,</span> {' '}
@@ -81,6 +92,11 @@ const Navbar = () => {
             </div>
             
           </TooltipComponent>
+
+          { isClicked.cart && <Cart />}
+          { isClicked.chat && <Chat />}
+          { isClicked.notification && <Notification />}
+          { isClicked.userProfile && <UserProfile />}
         </div>
     </div>
   )
