@@ -40,7 +40,7 @@ module.exports = {
         },
         backgroundImage: {
           'hero-pattern':
-            "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+            "url('https://media.idownloadblog.com/wp-content/uploads/2020/03/vector-landscape-wallpaper-by-WALLSBYJFL-idownloadblog-color-sunset-desktop.jpg')",
         },
       },
     },
