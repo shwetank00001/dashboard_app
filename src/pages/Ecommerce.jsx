@@ -104,7 +104,10 @@ const Ecommerce = () => {
                     text="Hello"
                     borderRadius="10px"
                     bgColor="blue" /> */}
-                    <Stacked />
+                    <Stacked 
+                      width="320px"
+                      height="360px"
+                    />
                   </div>
 
                 </div>
